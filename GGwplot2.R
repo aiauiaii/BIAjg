@@ -34,7 +34,7 @@ branch_sales <- data %>%
 # visualization
 ggplot(branch_sales, aes(x = City, y = Total_Sales, fill = Product.line)) +
   geom_bar(stat = "identity", position = "dodge", width = 0.7) + 
-  scale_y_continuous(labels = scales::comma) +  # Format y-axis labels with commas
+  scale_y_continuous(labels = scales::comma) + 
   scale_fill_brewer(palette = "Set2") +  
   labs(title = "Total Sales by Branch and Product Line", x = "Branch", y = "Total Sales") +
   theme_minimal(base_size = 14) +
