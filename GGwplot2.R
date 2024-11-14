@@ -25,12 +25,12 @@ data$Date <- as.Date(data$Date, format="%m/%d/%Y")
 #----
 #  total and average sales calculation
 total_sales <- sum(data$Total, na.rm = TRUE)
-average_sales <- mean(product_sales$Total_Sales)
 product_sales <- data %>%
   group_by(`Product.line`) %>%
   summarise(Total_Sales = sum(`Total`)) %>%
   mutate(Percentage = (Total_Sales / total_sales) * 100) %>%
   arrange(desc(Total_Sales))
+average_sales <- mean(product_sales$Total_Sales)
 
 # visualization
 ggplot(product_sales, aes(x = reorder(`Product.line`, Total_Sales), y = Total_Sales, fill = `Product.line`)) +
